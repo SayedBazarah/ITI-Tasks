@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calc</title>
+    <style>
+        
+        span {
+            color: crimson;
+        }
+    </style>
+</head>
+<body>
+    <div class="container"></div>
+    <div class="container"></div>
+    <div class=""></div>
+    <div class=""></div>
+    <div class="container"></div>
+
+
+
+    <script>
+    let numOfOperatins = +prompt("please enter number of operation you want:")
+    let userInput = []
+
+    for(let counter = 0; counter <numOfOperatins; counter++){
+        userInput.push(+prompt("please enter value you want to calc"))
+    }
+    document.getElementsByTagName("")
+    //[1,2,3,4], +
+
+    function calc (operation) {
+        let result = userInput[0]
+
+        for(let counter =1; counter < userInput.length; counter++){
+           
+            switch(operation){
+                case "+":
+                     result = result + userInput[counter]
+                     break;
+                case "-":
+                     result -= userInput[counter]
+                     break;
+                case "*":
+                     result *= userInput[counter]
+                     break;
+                case "/":
+                     result /= userInput[counter]
+                     break;
+              
+            }
+            
+        }
+        return result
+    }
+
+    
+
+    document.write(`<h1>Adding--Multiplying--and dividing ${numOfOperatins} values</h1><hr>`)
+
+    document.write(`<p><span>sum of the ${numOfOperatins} values </span>${userInput.join("+")} = ${calc("+")} </p>`)
+    document.write(`<p><span>sum of the ${numOfOperatins} values </span> ${userInput.join("-")} = ${calc("-")} </p>`)
+    document.write(`<p><span>sum of the ${numOfOperatins} values </span> ${userInput.join("*")} = ${calc("*")} </p>`)
+    document.write(`<p><span>sum of the ${numOfOperatins} values </span> ${userInput.join("/")} = ${calc("/")} </p>`)
+   
+
+    </script>
+</body>

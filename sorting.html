@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorting</title>
+    <style>
+        span {
+            color: crimson;
+        }
+    </style>
+</head>
+<body>
+    
+    <script>
+        let userInput = []
+
+        for(let counter = 0; counter <5; counter++){
+            userInput.push(prompt("please enter value you want to store"))
+        }
+
+        function descending (num1, num2) {
+            return num1 - num2
+        }
+        function ascending (num1, num2) {
+            return  num2 - num1
+        }
+
+        document.write(`<h1>Sorting</h1><hr>`)
+        document.write(`<p><span>u've entered the values of</span> ${userInput.toString()} </p>`)
+        document.write(`<p><span>ur values after being sorted descending</span> ${userInput.sort(descending).toString()} </p>`)
+        document.write(`<p><span>ur values after being sorted ascending</span> ${userInput.sort(ascending).toString()} </p>`)
+    </script>
+</body>
+</html>
