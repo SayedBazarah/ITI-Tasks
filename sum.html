@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sum</title>
+    <style>
+        *{
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            text-align: center;
+            margin: 30px;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            height: 50vh;
+            width: 80%;
+            margin: 50px auto;
+            background-color: crimson;
+            color: white
+        }
+        .container input {
+            padding: 8px 20px;
+            border: none;
+            outline-color: crimson;
+            border-radius: 9px;
+            margin-bottom: 20px;
+        }
+       .container input::-webkit-outer-spin-button,
+       .container input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        .container button {
+            width: 50%;
+            border:none;
+            background-color: white;
+            padding: 8px 20px;
+        }
+        .container p {
+            font-size: 20px;
+        }
+        .btn{
+            display: flex;
+            gap: 5px;
+        }
+
+    </style>
+</head>
+<body>
+        <h1>Sum Calculator</h1>
+        <hr>
+        <div class="container">
+            <div>
+                <div><input id="num" type="number"/></div>
+                <div class="btn">
+                    <button onclick={calc()}>Add</button>
+                    <button onclick={reset()}>Reset</button></div>
+            </div>
+            <p id="container">Result: 0</p>
+        </div>
+        
+    <script>
+        let total = 0;
+        let userInput = document.getElementById("num");
+        let resultElement = document.getElementById("container");
+
+        function calc (){
+                 // total = total =   
+            total += parseInt(userInput.value || 0)
+            if(userInput.value && total < 100){
+            // 'Result,'+total '' ``
+            resultElement.innerText = `Result: ${total}`
+            }else if(userInput.value && total > 100){
+                resultElement.innerText = `Your calculated number exceed 100`
+            }
+            else{
+                resultElement.innerText = `Enter number you want to calculator`
+                
+            }
+
+        }
+
+        function reset(){
+            total = 0;
+            resultElement.innerText = `Result: ${total}`
+        }
+        
+    </script>
+</body>
+</html>

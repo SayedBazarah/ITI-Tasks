@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Converter</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        .center{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+        }
+        .gap{
+            gap: 10px;
+        }
+        .mr-tp-50 {
+            margin-top: 50px;
+        }
+        .center input {
+            padding: 5px 10px;
+            
+        }
+        #alert{
+            color: red;
+            margin-top: 50px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="center">
+        <h1>ITI Converter</h1>
+        <p>Let's Convert Binary to Integer  </p>
+    </div>
+
+    <div class="center gap mr-tp-50">
+            <label>Binary number: <input id='binary' type="text"  oninput={binaryChange()} /></label>
+            <label>Integer number: <input id='integer' type="text" oninput={integerChange()} /></label>
+    </div>
+
+    <div>
+        <p id="alert"></p>
+    </div>
+
+    <script>
+        let binary = document.getElementById("binary");
+        let integer = document.getElementById("integer");
+        let alert = document.getElementById("alert");
+        
+        function binaryChange(){
+            let checkBinary = /[0-1]/.test(binary.value);
+            if(checkBinary){
+                alert.innerText=""
+              integer.value = parseInt(binary.value,2)
+            }
+            else{
+                alert.innerText="Warring: Please Enter a correct binary number";
+            }
+        }
+        function integerChange(){
+            let checkInteger = /[0-9]/.test(integer.value);
+            console.log(checkInteger)
+            if(checkInteger){ 
+                alert.innerText=""
+                binary.value = parseInt(integer.value, 10).toString(2).padStart(4, "0")
+            }
+            else{
+                alert.innerText="Warring: Please Enter a correct integer number"
+            }
+        }
+    
+    </script>
+</body>
+</html>

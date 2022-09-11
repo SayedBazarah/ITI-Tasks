@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Info</title>
+    <style>
+        #info p {
+            color:blue
+        }
+        #info span {
+            color:black
+        }
+        .header {
+            display: flex; justify-content: center;flex-direction: column;align-items: center;
+        }
+        .header button {
+            padding: 8px 20px;
+        }
+    </style>
+</head>
+<body >
+    
+    <div class="header">
+    <h1 >Hello user</h1>
+    <button onclick={enteringUserData()}>Entering your info</button>
+    </div>
+    <div id="info">
+
+    </div>
+    <script>
+        function enteringUserData(){
+            let userData = {}
+            let date = new Date()
+            let currentDate = date.toLocaleDateString("en-US", { weekday: 'short',month: 'short',  day: 'numeric', year: 'numeric' })
+
+            let nm = prompt("Your name:")
+            let tel  = prompt("Your telephone:")
+            let mob  = prompt("Your mobile:")
+            let email = prompt("Your E-mail")
+
+            userData = {
+                name: nm,
+                tel: tel,
+                mob: mob,
+                email: email
+            }
+            let infoDiv = document.getElementById('info');
+            infoDiv.innerHTML += `
+            <p>Welcome dear guest: <span>${userData.name}</span> </p>
+            <p>Your telephone number is: <span>${userData.tel}</span> </p>
+            <p>Your Mobile nubmer is: <span>${userData.mob}</span> </p>
+            <p>Your E-mail address is: <span>${userData.email}</span></p>
+            </br>
+            </br>
+            </br>
+            </br>
+            <p>Today is <span>${currentDate}</span></p>
+            `
+        }
+    </script>
+</body>
+</html>
